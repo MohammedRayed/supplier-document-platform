@@ -31,3 +31,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Terraform
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup
+infra/terraform/terraform.tfvars
+infra/terraform/.terraform.lock.hcl
+
+# Environment variables / secrets
+.env
+infra/.env
