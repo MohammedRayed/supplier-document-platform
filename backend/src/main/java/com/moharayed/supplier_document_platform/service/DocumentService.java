@@ -37,12 +37,14 @@ public class DocumentService {
         document.setFileName(updateDocument.getFileName());
         document.setStatus(updateDocument.getStatus());
         document.setSupplierName(updateDocument.getSupplierName());
-        document.setUploadDate(updateDocument.getUploadDate());
 
         return repository.save(document);
     }
 
     public void deleteDocumentById(Long id) {
-        repository.deleteById(id);
+        Document document = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Document not found"));
+
+        repository.delete(document);
     }
 }
